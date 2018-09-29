@@ -3,17 +3,15 @@ class Conwaygame
     def initialize(tamano)
         #codigo inicial
         #variables
-        @world = @world = Array.new(tamano+2){Array.new(tamano+2)} 
-        @neighborhood = @neighborhood = Array.new(tamano+2){Array.new(tamano+2)}
+        @world = Array.new(tamano+2){Array.new(tamano+2)} 
+        @neighborhood  = Array.new(tamano+2){Array.new(tamano+2)}
     end
 
     def CrearMundo
         for x in 0..@world.size-1
-            #@world.push([])
             for y in 0..@world.size-1
                 @world[x][y]=0
                 @neighborhood[x][y]=0
-                #puts @world[x][y]
             end
         end
     end
@@ -27,6 +25,15 @@ class Conwaygame
     def printneighborhood
         @neighborhood.each_with_index do |e, row, col|
             puts "#{e}" 
+        end
+    end
+
+    def print(what)
+        for x in 1..5
+            for y in 1..5
+                print what[x][y]
+            end
+            puts
         end
     end
 
@@ -91,7 +98,8 @@ end
 game = Conwaygame.new(4)
 game.CrearMundo
 game.CrearUniverso
-game.printstep
+#game.printstep
+game.print(@world)
 game.next_step
 puts "_____________________"
 game.printneighborhood
