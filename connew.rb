@@ -1,19 +1,15 @@
 class Conwaygame
     attr_accessor :world,:neighborhood
     def initialize(tamano)
-        #codigo inicial
-        #variables
-        @world = @world = Array.new(tamano+2){Array.new(tamano+2)} 
-        @neighborhood = @neighborhood = Array.new(tamano+2){Array.new(tamano+2)}
+        @world = Array.new(tamano+2){Array.new(tamano+2)} 
+        @neighborhood  = Array.new(tamano+2){Array.new(tamano+2)}
     end
 
     def CrearMundo
         for x in 0..@world.size-1
-            #@world.push([])
             for y in 0..@world.size-1
                 @world[x][y]=0
                 @neighborhood[x][y]=0
-                #puts @world[x][y]
             end
         end
     end
@@ -81,9 +77,7 @@ class Conwaygame
                 elsif @neighborhood[x][y]==3 then
                         @world[x][y] = 1 
                 end
-                #@world[x][y] = 
             end
-
         end  
     end 
 end 
@@ -94,8 +88,11 @@ game.CrearUniverso
 game.printstep
 game.next_step
 puts "_____________________"
+puts "   MATRIZ DE VECINO  "
 game.printneighborhood
 puts "---------------------"
+puts " SIGUIENTE GENERACIN "
 game.findlife
 game.printstep
+
 
